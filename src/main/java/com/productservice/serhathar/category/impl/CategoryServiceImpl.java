@@ -58,8 +58,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteCategory(String id) {
-
-        repository.deleteById(id);
+        Category category = repository.getById(id);
+        category.setStatus(false);
+        updateCategory(id, toDto(category));
     }
 
     public Category toEntity(CategoryDto dto) {

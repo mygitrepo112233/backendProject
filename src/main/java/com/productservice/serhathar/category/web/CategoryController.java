@@ -2,7 +2,6 @@ package com.productservice.serhathar.category.web;
 
 import com.productservice.serhathar.category.api.CategoryDto;
 import com.productservice.serhathar.category.api.CategoryService;
-import com.productservice.serhathar.category.impl.Category;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -37,9 +36,7 @@ public class CategoryController {
     }
     @PutMapping(path = "/delete-status/{id}")
     public void delete_statusCategory(@PathVariable(value = "id") String id, CategoryDto dto) {
-        Category category = categoryService.getById(id);
-        category.setStatus(false);
-        categoryService.updateCategory(id, dto);
+        categoryService.deleteCategory(id);
     }
     @DeleteMapping(path = "/delete/{id}")
     void delete(@PathVariable String id) {
