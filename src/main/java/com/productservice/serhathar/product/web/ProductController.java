@@ -45,6 +45,7 @@ public class ProductController {
         ProductDto product = service.updateProduct(id, request.toDto());
         return ResponseEntity.ok(ProductResponse.toResponse(product));
     }
+
     @PutMapping(path = "/delete-status/{id}")
     public void delete_statusProduct(@PathVariable(value = "id") String id, ProductDto dto) {
         Product product = service.getProductById(id);

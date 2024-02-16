@@ -37,7 +37,6 @@ public class CategoryServiceImpl implements CategoryService {
         return repository.findByName(name)
                 .orElseThrow(() -> new EntityNotFoundException("Category not found   " + getClass().getName()));
     }
-
     @Override
     public List<CategoryDto> findByStatusTrue() {
         return repository.findAllByStatusTrue().stream().map(this::toDto).toList();
