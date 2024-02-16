@@ -2,7 +2,6 @@ package com.productservice.serhathar.product.web;
 
 import com.productservice.serhathar.product.api.ProductDto;
 import com.productservice.serhathar.product.api.ProductService;
-import com.productservice.serhathar.product.impl.Product;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -54,10 +53,11 @@ public class ProductController {
 
     @PutMapping(path = "/delete-status/{id}")
     public void delete_statusProduct(@PathVariable(value = "id") String id, ProductDto dto) {
-        Product product = service.getProductById(id);
+        /*Product product = service.getProductById(id);
         product.setStatus(false);
         service.updateProduct(id, dto);
-        //repository.save(product);
+        //repository.save(product);*/
+        service.deleteProduct(id);
     }
 
     @DeleteMapping(path = "/delete/{id}")

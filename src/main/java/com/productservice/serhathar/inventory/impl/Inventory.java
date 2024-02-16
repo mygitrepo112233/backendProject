@@ -27,7 +27,10 @@ public class Inventory {
     @Column(name = COL_ID)
     private String id;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "inventory_products",
+            joinColumns = @JoinColumn(name = "inventory_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
     @Column(name = COL_LIST)
     private List<Product> productList;
 }

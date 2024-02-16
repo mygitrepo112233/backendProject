@@ -67,8 +67,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(String id) {
-
-        repository.deleteById(id);
+        Product product = repository.getProductById(id);
+        product.setStatus(false);
+        updateProduct(id,toDto(product));
     }
 
     private void checkProductExists(ProductDto dto) {
