@@ -13,4 +13,7 @@ public interface InventoryService {
     Inventory getById(String id);
 
     InventoryRepository updateInventory(String id, InventoryDto dto);
+    public void addProductToInventory(String inventoryId, String productId);
+    public void removeProductToInventory(String inventoryId, String productId);
+
 }

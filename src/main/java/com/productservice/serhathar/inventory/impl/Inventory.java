@@ -32,7 +32,8 @@ public class Inventory {
     @Column(name = COL_NAME)
     private String name;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     @JoinTable(name = "inventory_products",
             joinColumns = @JoinColumn(name = "inventory_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))

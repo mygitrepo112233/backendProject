@@ -33,22 +33,24 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public Inventory getById(String id) {
+
         return repository.getInventoryById(id);
     }
 
     @Override
     public InventoryRepository updateInventory(String id, InventoryDto dto) {
+
         return null;
     }
-
+    @Override
     public void addProductToInventory(String inventoryId, String productId) {
         Inventory inventory = repository.getInventoryById(inventoryId);
         Product product = productService.getProductById(productId);
         inventory.getProductList().add(product);
         repository.save(inventory);
     }
-
-    public void removeProductFromInventory(String inventoryId, String productId) {
+    @Override
+    public void removeProductToInventory(String inventoryId, String productId) {
         Inventory inventory = repository.getInventoryById(inventoryId);
         Product product = productService.getProductById(productId);
         inventory.getProductList().remove(product);
@@ -65,7 +67,6 @@ public class InventoryServiceImpl implements InventoryService {
 
     private Inventory checkInventoryUpdate(InventoryDto dto, Inventory inventory) {
         inventory.setName(dto.getName() == null ? inventory.getName() : dto.getName());
-        inventory.setProductList(dto.getProductList() == null ? inventory.getProductList() : dto.getProductList());
         inventory.setName(dto.getName() == null ? inventory.getName() : dto.getName());
         return inventory;
     }
