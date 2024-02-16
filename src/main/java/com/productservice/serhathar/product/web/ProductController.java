@@ -40,6 +40,12 @@ public class ProductController {
         return ResponseEntity.ok(productResponseList);
     }
 
+    @GetMapping(path = "/get-all-active")
+    public ResponseEntity<List<ProductResponse>> getAllActiveProducts() {
+        List<ProductResponse> productResponseList = toResponse(service.findAllByStatusAndCategoryStatus(true, true));
+        return ResponseEntity.ok(productResponseList);
+    }
+
     @PutMapping(path = "/update/{id}")
     public ResponseEntity<ProductResponse> updateProduct(@PathVariable(value = "id") String id, @Valid @RequestBody ProductRequest request) {
         ProductDto product = service.updateProduct(id, request.toDto());

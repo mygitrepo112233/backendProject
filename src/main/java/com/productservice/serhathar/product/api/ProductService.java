@@ -12,4 +12,5 @@ public interface ProductService {
     ProductDto updateProduct(String id , ProductDto product);
     List<ProductDto> getProductByCategory(String categoryName);
     Product getProductById(String id);
+    List<ProductDto> findAllByStatusAndCategoryStatus(Boolean productStatus, Boolean categoryStatus);
 }

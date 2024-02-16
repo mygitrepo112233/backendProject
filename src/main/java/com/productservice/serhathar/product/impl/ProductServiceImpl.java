@@ -56,7 +56,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(String id) {
+
         return repository.getProductById(id);
+    }
+
+    @Override
+    public List<ProductDto> findAllByStatusAndCategoryStatus(Boolean productStatus, Boolean categoryStatus) {
+        return repository.findAllByStatusAndCategoryStatus(productStatus, categoryStatus).stream().map(this::toDto).toList();
     }
 
     @Override
