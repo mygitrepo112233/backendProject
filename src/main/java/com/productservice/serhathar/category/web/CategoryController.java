@@ -20,24 +20,26 @@ public class CategoryController {
         CategoryDto category = categoryService.createCategory(request.toDto());
         return ResponseEntity.ok(CategoryResponse.toResponse(category));
     }
+
     @GetMapping(path = "/get-all")
-    public ResponseEntity<List<CategoryResponse>> getAllCategory (){
+    public ResponseEntity<List<CategoryResponse>> getAllCategory() {
         List<CategoryResponse> categoryResponseList = toResponse(categoryService.getAllCategory());
         return ResponseEntity.ok(categoryResponseList);
     }
 
     @PutMapping(path = "/get/{id}")
-    public ResponseEntity<CategoryResponse> updateCategory(@PathVariable(value = "id")String id,@Valid @RequestBody CategoryDto dto){
+    public ResponseEntity<CategoryResponse> updateCategory(@PathVariable(value = "id") String id, @Valid @RequestBody CategoryDto dto) {
         CategoryDto category = categoryService.updateCategory(id, dto);
         return ResponseEntity.ok(CategoryResponse.toResponse(category));
     }
 
-    @DeleteMapping(path = "/delete/{id}") void delete(@PathVariable String id ){
+    @DeleteMapping(path = "/delete/{id}")
+    void delete(@PathVariable String id) {
 
         //categoryService.deleteCategory(id);
     }
 
-    public List<CategoryResponse>toResponse(List<CategoryDto> categoryDtoList){
+    public List<CategoryResponse> toResponse(List<CategoryDto> categoryDtoList) {
         return categoryDtoList.stream().map(CategoryResponse::toResponse).toList();
 
     }
