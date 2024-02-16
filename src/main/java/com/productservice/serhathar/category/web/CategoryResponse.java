@@ -13,10 +13,10 @@ public class CategoryResponse {
     private String id;
     private String name;
     private String description;
-    private Boolean status;
     private Date creaDate;
+    private Boolean status;
 
-    public static CategoryResponse toResponse(CategoryDto dto){
+    public static CategoryResponse toResponse(CategoryDto dto) {
         return CategoryResponse.builder()
                 .id(dto.getId())
                 .status(dto.getStatus())

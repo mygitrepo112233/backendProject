@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -21,13 +20,13 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Product implements Serializable {
     public static final String COL_ID = "id";
-    public static final String COL_NAME ="name";
+    public static final String COL_NAME = "name";
     public static final String COL_DESCRIPTION = "description";
-    public static final String COL_CREATE_DATE="create_date";
-    public static final String COL_BRAND="brand";
-    public static final String COL_BARCODE="barcode";
-    public static final String COL_PRICE="price";
-    public static final String COL_CATEGORY_ID="category_id";
+    public static final String COL_CREATE_DATE = "create_date";
+    public static final String COL_BRAND = "brand";
+    public static final String COL_BARCODE = "barcode";
+    public static final String COL_PRICE = "price";
+    public static final String COL_CATEGORY_ID = "category_id";
 
     @Id
     @GeneratedValue(generator = "system-uuid")
@@ -43,10 +42,10 @@ public class Product implements Serializable {
     @Column(name = COL_CREATE_DATE)
     private Date creaDate;
 
-    @Column(name=COL_NAME)
+    @Column(name = COL_NAME)
     private String name;
 
-    @Column(name=COL_BRAND)
+    @Column(name = COL_BRAND)
     private String brand;
 
     @Column(name = COL_PRICE)

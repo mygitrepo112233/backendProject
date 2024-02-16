@@ -15,12 +15,12 @@ public class ProductDto {
 
     private String id;
     private String barcode;
-    private Date creaDate;
     private String name;
     private String brand;
-    private BigDecimal price;
     private String description;
     private String categoryName;
-    private CategoryDto category;
+    private Date creaDate;
     private Boolean status;
+    private BigDecimal price;
+    private CategoryDto category;
 }

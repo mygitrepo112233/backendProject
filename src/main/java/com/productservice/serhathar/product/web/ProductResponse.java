@@ -13,18 +13,20 @@ import java.util.Date;
 public class ProductResponse {
     private String id;
     private String barcode;
-    private Date creaDate;
     private String name;
     private String brand;
-    private BigDecimal price;
+    private String description;
     private String categoryName;
+    private Date creaDate;
     private Boolean status;
+    private BigDecimal price;
     private CategoryDto category;
 
-    public static ProductResponse toResponse(ProductDto dto){
+    public static ProductResponse toResponse(ProductDto dto) {
         return ProductResponse.builder()
                 .id(dto.getId())
                 .status(dto.getStatus())
+                .description(dto.getDescription())
                 .barcode(dto.getBarcode())
                 .creaDate(dto.getCreaDate())
                 .name(dto.getName())

@@ -22,11 +22,12 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = toEntity(dto);
         return toDto(repository.save(category));
     }
+
     @Override
     @Transactional
     public CategoryDto updateCategory(String id, CategoryDto dto) {
         return repository.findById(id)
-                .map(category -> checkCategoryUpdate(dto,category))
+                .map(category -> checkCategoryUpdate(dto, category))
                 .map(repository::save)
                 .map(this::toDto)
                 .orElseThrow(EntityNotFoundException::new);
@@ -37,6 +38,7 @@ public class CategoryServiceImpl implements CategoryService {
         return repository.findByName(name)
                 .orElseThrow(() -> new EntityNotFoundException("Category not found   " + getClass().getName()));
     }
+
     @Override
     public List<CategoryDto> findByStatusTrue() {
         return repository.findAllByStatusTrue().stream().map(this::toDto).toList();
@@ -67,6 +69,7 @@ public class CategoryServiceImpl implements CategoryService {
         return category;
 
     }
+
     public CategoryDto toDto(Category category) {
         return CategoryDto.builder()
                 .id(category.getId())
@@ -76,9 +79,10 @@ public class CategoryServiceImpl implements CategoryService {
                 .description(category.getDescription())
                 .build();
     }
+
     private Category checkCategoryUpdate(CategoryDto dto, Category category) {
-        category.setName(dto.getName()==null?category.getName():dto.getName());
-        category.setDescription(dto.getDescription()==null?category.getDescription():dto.getDescription());
+        category.setName(dto.getName() == null ? category.getName() : dto.getName());
+        category.setDescription(dto.getDescription() == null ? category.getDescription() : dto.getDescription());
         return category;
     }
 

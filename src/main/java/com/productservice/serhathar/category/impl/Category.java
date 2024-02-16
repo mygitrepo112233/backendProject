@@ -22,8 +22,8 @@ import java.util.List;
 public class Category {
     public static final String Table = "category";
     private static final String COL_ID = "id";
-    public static final String COL_NAME ="name";
-    public static final String COL_DESCRIPTION="description";
+    public static final String COL_NAME = "name";
+    public static final String COL_DESCRIPTION = "description";
     private static final String COL_CREATE_DATE = "create_date";
     private static final String COL_PRODUCT_ID = "product_id";
 
@@ -31,10 +31,10 @@ public class Category {
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     @Column(name = COL_ID)
-    private String id ;
+    private String id;
 
     @Column(name = COL_NAME)
-    private  String name;
+    private String name;
 
     @Column(name = COL_DESCRIPTION)
     private String description;
@@ -47,7 +47,7 @@ public class Category {
     @Column(name = COL_CREATE_DATE)
     private Date creaDate;
 
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Column(name = COL_PRODUCT_ID)
     private List<Product> productList;
 }

@@ -8,7 +8,6 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product, String> {
     Optional<Object> findByName(String name);
     List<Product> findAllByStatusTrue();
-    //List<Product> findAllByStatusTrueAndColCategoryIdIsTrue(); //checks false categories, not used.
     List<Product> findAllByStatusAndCategoryStatus(Boolean productStatus, Boolean categoryStatus);
     Product getProductById(String id);
 }

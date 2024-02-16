@@ -6,10 +6,16 @@ import java.util.List;
 
 public interface CategoryService {
     CategoryDto createCategory(CategoryDto dto);
+
     List<CategoryDto> getAllCategory();
+
     Category getById(String id);
+
     void deleteCategory(String id);
-    CategoryDto updateCategory(String id , CategoryDto dto);
+
+    CategoryDto updateCategory(String id, CategoryDto dto);
+
     Category getByName(String name);
+
     List<CategoryDto> findByStatusTrue();
 }
