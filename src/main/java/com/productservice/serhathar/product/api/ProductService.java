@@ -1,7 +1,6 @@
 package com.productservice.serhathar.product.api;
 
 import com.productservice.serhathar.product.impl.Product;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -12,4 +11,5 @@ public interface ProductService {
     void deleteProduct(String id);
     ProductDto updateProduct(String id , ProductDto product);
     List<ProductDto> getProductByCategory(String categoryName);
+    Product getProductById(String id);
 }

@@ -34,7 +34,7 @@ public class CategoryController {
 
     @DeleteMapping(path = "/delete/{id}") void delete(@PathVariable String id ){
 
-        categoryService.deleteCategory(id);
+        //categoryService.deleteCategory(id);
     }
 
     public List<CategoryResponse>toResponse(List<CategoryDto> categoryDtoList){

@@ -8,8 +8,6 @@ import com.productservice.serhathar.product.api.ProductService;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,6 +52,11 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDto> getProductByCategory(String categoryName) {
         Category category = categoryService.getByName(categoryName);
         return category.getProductList().stream().map(this::toDto).toList();
+    }
+
+    @Override
+    public Product getProductById(String id) {
+        return repository.getProductById(id);
     }
 
     @Override
