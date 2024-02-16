@@ -39,7 +39,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public List<CategoryDto> findByStatusTrue() {
+        return repository.findAllByStatusTrue().stream().map(this::toDto).toList();
+    }
+
+    @Override
     public List<CategoryDto> getAllCategory() {
+
         return repository.findAll().stream().map(this::toDto).toList();
     }
 

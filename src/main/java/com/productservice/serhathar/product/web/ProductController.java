@@ -3,7 +3,6 @@ package com.productservice.serhathar.product.web;
 import com.productservice.serhathar.product.api.ProductDto;
 import com.productservice.serhathar.product.api.ProductService;
 import com.productservice.serhathar.product.impl.Product;
-import com.productservice.serhathar.product.impl.ProductRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,6 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
     private final ProductService service;
-    private final ProductRepository repository;
 
     @PostMapping(path = "/add")
     public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody ProductRequest request) {
