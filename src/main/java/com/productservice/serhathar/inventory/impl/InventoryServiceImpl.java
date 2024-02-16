@@ -27,9 +27,8 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public List<InventoryDto> getAllInventory() {
+    public List<InventoryDto> getAllInventories() {
         return repository.findAll().stream().map(this::toDto).toList();
-        //repository.findAll().stream().map(this::toDto).toList();
     }
 
     @Override
@@ -74,14 +73,12 @@ public class InventoryServiceImpl implements InventoryService {
     private Inventory toEntity(InventoryDto dto) {
         Inventory inventory = new Inventory();
         inventory.setName(dto.getName());
-        inventory.setProductList(dto.getProductList());
         return inventory;
     }
 
     private InventoryDto toDto(Inventory inventory) {
         return InventoryDto.builder()
                 .id(inventory.getId())
-                .productList(inventory.getProductList())
                 .name(inventory.getName())
                 .build();
     }

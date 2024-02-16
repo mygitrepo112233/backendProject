@@ -23,4 +23,10 @@ public class InventoryController {
         InventoryDto inventory = service.createInventory(request.toDto());
         return ResponseEntity.ok(toResponse(inventory));
     }
+
+    /*@GetMapping(path = "/get-all")
+    public ResponseEntity<List<InventoryResponse>> getAllInventories() {
+        List<InventoryResponse> inventoryResponseList = toResponse(service.getAllInventories());
+        return ResponseEntity.ok(inventoryResponseList);
+    }*/
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public interface InventoryService {
     InventoryDto createInventory(InventoryDto inventoryDto);
 
-    List<InventoryDto> getAllInventory();
+    List<InventoryDto> getAllInventories();
 
     Inventory getById(String id);
 
