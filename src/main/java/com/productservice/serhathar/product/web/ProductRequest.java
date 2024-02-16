@@ -14,6 +14,7 @@ public class ProductRequest {
     private final String name;
     private final String brand;
     private final BigDecimal price;
+    private final CategoryDto category;
     private final String categoryName;
     private final String barcode;
     private final Boolean status;
@@ -24,6 +25,7 @@ public class ProductRequest {
                 .brand(brand)
                 .status(status)
                 .price(price)
+                .category(category)
                 .categoryName(categoryName)
                 .barcode(barcode)
                 .build();
