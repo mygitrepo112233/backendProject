@@ -102,7 +102,7 @@ public class ProductServiceImpl implements ProductService {
         return product;
     }
 
-    private ProductDto toDto(Product product) {
+    public ProductDto toDto(Product product) {
         CategoryDto category = categoryService.toDto(product.getCategory());
         return ProductDto.builder()
                 .id(product.getId())

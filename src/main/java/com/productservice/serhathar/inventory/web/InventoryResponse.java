@@ -12,11 +12,13 @@ import java.util.List;
 public class InventoryResponse {
 
     private String id;
+    private String name;
     private List<Product> productList;
 
     public static InventoryResponse toResponse(InventoryDto dto) {
         return InventoryResponse.builder()
                 .id(dto.getId())
+                .name(dto.getName())
                 .productList(dto.getProductList())
                 .build();
     }

@@ -10,6 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.List;
+
 @Entity
 @Setter
 @Getter
@@ -19,6 +20,7 @@ import java.util.List;
 public class Inventory {
     private static final String Table = "inventory";
     private static final String COL_ID = "id";
+    private static final String COL_NAME = "name";
     private static final String COL_LIST = "product_list";
 
     @Id
@@ -26,6 +28,9 @@ public class Inventory {
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     @Column(name = COL_ID)
     private String id;
+
+    @Column(name = COL_NAME)
+    private String name;
 
     @ManyToMany
     @JoinTable(name = "inventory_products",

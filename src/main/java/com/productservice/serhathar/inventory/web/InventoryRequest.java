@@ -11,9 +11,12 @@ import java.util.List;
 @Builder
 public class InventoryRequest {
 
+    private String name;
     private List<Product> productList;
+
     public InventoryDto toDto() {
         return InventoryDto.builder()
+                .name(name)
                 .productList(productList)
                 .build();
     }
