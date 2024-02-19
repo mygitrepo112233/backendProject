@@ -46,3 +46,14 @@ public class CategoryController {
         return categoryDtoList.stream().map(CategoryResponse::toResponse).toList();
     }
 }
+
+/*
+    @PutMapping//"/{categoryId}/category/{productId}/add")
+    public void addProductToCategory(@PathVariable String categoryId, @PathVariable String productId) {
+        categoryService.addProductToCategory(categoryId, productId);
+    }
+
+    @PutMapping//"/{categoryId}/category/{productId}/remove"
+    public void removeProductFromCategory(@PathVariable String categoryId, @PathVariable String productId) {
+        categoryService.removeProductFromCategory(categoryId, productId);
+    }*/

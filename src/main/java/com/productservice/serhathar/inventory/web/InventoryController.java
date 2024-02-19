@@ -28,7 +28,7 @@ public class InventoryController {
 
     @PutMapping("/{inventoryId}/products/{productId}/remove")
     public void removeProductFromInventory(@PathVariable String inventoryId, @PathVariable String productId) {
-        service.removeProductToInventory(inventoryId, productId);
+        service.removeProductFromInventory(inventoryId, productId);
     }
 
     public List<InventoryResponse> toResponse(List<InventoryDto> inventoryDtoList) {

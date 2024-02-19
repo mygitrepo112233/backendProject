@@ -50,7 +50,7 @@ public class InventoryServiceImpl implements InventoryService {
         repository.save(inventory);
     }
     @Override
-    public void removeProductToInventory(String inventoryId, String productId) {
+    public void removeProductFromInventory(String inventoryId, String productId) {
         Inventory inventory = repository.getInventoryById(inventoryId);
         Product product = productService.getProductById(productId);
         inventory.getProductList().remove(product);
