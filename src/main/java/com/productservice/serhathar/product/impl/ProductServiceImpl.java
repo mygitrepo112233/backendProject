@@ -71,6 +71,12 @@ public class ProductServiceImpl implements ProductService {
         product.setStatus(false);
         updateProduct(id,toDto(product));
     }
+    @Override
+    public void activateProduct(String id) {
+        Product product = repository.getProductById(id);
+        product.setStatus(true);
+        updateProduct(id,toDto(product));
+    }
 
     private void checkProductExists(ProductDto dto) {
         repository.findByName(dto.getName()).ifPresent(product -> {

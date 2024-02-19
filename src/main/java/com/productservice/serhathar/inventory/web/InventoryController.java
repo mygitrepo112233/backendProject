@@ -36,6 +36,7 @@ public class InventoryController {
     public void removeProductFromInventory(@PathVariable String inventoryId, @PathVariable String productId) {
         service.removeProductFromInventory(inventoryId, productId);
     }
+
     public List<InventoryResponse> toResponse(List<InventoryDto> inventoryDtoList) {
         return inventoryDtoList.stream().map(InventoryResponse::toResponse).toList();
     }

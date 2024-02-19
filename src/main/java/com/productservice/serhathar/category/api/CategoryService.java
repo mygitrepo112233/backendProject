@@ -13,6 +13,8 @@ public interface CategoryService {
 
     CategoryDto updateCategory(String id, CategoryDto dto);
 
+    void activateCategory(String id);
+
     Category getByName(String name);
     List<CategoryDto> findByStatusTrue();
     /*public void addProductToCategory(String categoryId, String productId);

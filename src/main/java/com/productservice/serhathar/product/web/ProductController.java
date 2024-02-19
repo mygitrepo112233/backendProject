@@ -45,6 +45,11 @@ public class ProductController {
         return ResponseEntity.ok(productResponseList);
     }
 
+    @PutMapping(path = "/activate-status/{id}")
+    public void activateCategory(@PathVariable(value = "id") String id) {
+        service.activateProduct(id);
+    }
+
     @PutMapping(path = "/update/{id}")
     public ResponseEntity<ProductResponse> updateProduct(@PathVariable(value = "id") String id, @Valid @RequestBody ProductRequest request) {
         ProductDto product = service.updateProduct(id, request.toDto());
@@ -53,17 +58,7 @@ public class ProductController {
 
     @PutMapping(path = "/delete-status/{id}")
     public void delete_statusProduct(@PathVariable(value = "id") String id, ProductDto dto) {
-        /*Product product = service.getProductById(id);
-        product.setStatus(false);
-        service.updateProduct(id, dto);
-        //repository.save(product);*/
         service.deleteProduct(id);
-    }
-
-    @DeleteMapping(path = "/delete/{id}")
-    void delete(@PathVariable(value = "id") String id) {
-
-        //service.deleteProduct(id);
     }
 
     public List<ProductResponse> toResponse(List<ProductDto> productDtoList) {

@@ -34,6 +34,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public void activateCategory(String id) {
+        Category category = repository.getById(id);
+        category.setStatus(true);
+        updateCategory(id, toDto(category));
+    }
+
+    @Override
     public Category getByName(String name) {
         return repository.findByName(name)
                 .orElseThrow(() -> new EntityNotFoundException("Category not found   " + getClass().getName()));
