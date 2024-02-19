@@ -7,9 +7,14 @@ import java.util.List;
 
 public interface InventoryService {
     InventoryDto createInventory(InventoryDto inventoryDto);
+
     List<InventoryDto> getAllInventories();
+
     Inventory getById(String id);
+
     InventoryRepository updateInventory(String id, InventoryDto dto);
-    public int addProductToInventory(String inventoryId, String productId);
-    public void removeProductFromInventory(String inventoryId, String productId);
+
+    int addProductToInventory(String inventoryId, String productId);
+
+    void removeProductFromInventory(String inventoryId, String productId);
 }

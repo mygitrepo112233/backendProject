@@ -1,6 +1,6 @@
 package com.productservice.serhathar.inventory.api;
 
-import com.productservice.serhathar.product.impl.Product;
+import com.productservice.serhathar.product.api.ProductDto;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,5 +13,5 @@ public class InventoryDto {
     //every inventory is uniq for every user
     private String id;
     private String name;
-    private List<Product> productList;
+    private List<ProductDto> productList;
 }

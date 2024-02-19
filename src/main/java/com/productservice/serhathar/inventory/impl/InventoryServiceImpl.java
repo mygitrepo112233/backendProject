@@ -2,6 +2,7 @@ package com.productservice.serhathar.inventory.impl;
 
 import com.productservice.serhathar.inventory.api.InventoryDto;
 import com.productservice.serhathar.inventory.api.InventoryService;
+import com.productservice.serhathar.product.api.ProductService;
 import com.productservice.serhathar.product.impl.Product;
 import com.productservice.serhathar.product.impl.ProductServiceImpl;
 import jakarta.persistence.EntityExistsException;
@@ -76,15 +77,16 @@ public class InventoryServiceImpl implements InventoryService {
     private Inventory toEntity(InventoryDto dto) {
         Inventory inventory = new Inventory();
         inventory.setName(dto.getName());
-        inventory.setProductList(dto.getProductList());
+        inventory.setProductList(ProductService.toProductList(dto.getProductList()));
         return inventory;
     }
 
     private InventoryDto toDto(Inventory inventory) {
         return InventoryDto.builder()
                 .id(inventory.getId())
-                .productList(inventory.getProductList())
+                .productList(ProductService.toProductDtoList(inventory.getProductList()))
                 .name(inventory.getName())
                 .build();
     }
+
 }

@@ -40,13 +40,13 @@ public class CategoryController {
     }
 
     @PutMapping(path = "/activate-status/{id}")
-    public void activateCategory(@PathVariable(value = "id") String id) {
-        categoryService.activateCategory(id);
+    public String activateCategory(@PathVariable(value = "id") String id) {
+        return categoryService.activateCategory(id);
     }
 
     @PutMapping(path = "/delete-status/{id}")
-    public void delete_statusCategory(@PathVariable(value = "id") String id) {
-        categoryService.deleteCategory(id);
+    public String delete_statusCategory(@PathVariable(value = "id") String id) {
+        return categoryService.deleteCategory(id);
     }
 
     @DeleteMapping(path = "/delete/{id}")
@@ -58,14 +58,3 @@ public class CategoryController {
         return categoryDtoList.stream().map(CategoryResponse::toResponse).toList();
     }
 }
-
-/*
-    @PutMapping//"/{categoryId}/category/{productId}/add")
-    public void addProductToCategory(@PathVariable String categoryId, @PathVariable String productId) {
-        categoryService.addProductToCategory(categoryId, productId);
-    }
-
-    @PutMapping//"/{categoryId}/category/{productId}/remove"
-    public void removeProductFromCategory(@PathVariable String categoryId, @PathVariable String productId) {
-        categoryService.removeProductFromCategory(categoryId, productId);
-    }*/

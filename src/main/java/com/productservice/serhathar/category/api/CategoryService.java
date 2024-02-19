@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface CategoryService {
     CategoryDto createCategory(CategoryDto dto);
+
     List<CategoryDto> getAllCategory();
+
     Category getById(String id);
 
     String deleteCategory(String id);
@@ -16,6 +18,7 @@ public interface CategoryService {
     String activateCategory(String id);
 
     Category getByName(String name);
+
     List<CategoryDto> findByStatusTrue();
     /*public void addProductToCategory(String categoryId, String productId);
     public void removeProductFromCategory(String categoryId, String productId);*/
