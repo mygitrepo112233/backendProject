@@ -47,6 +47,7 @@ public class ProductController {
 
     @PutMapping(path = "/activate-status/{id}")
     public void activateCategory(@PathVariable(value = "id") String id) {
+
         service.activateProduct(id);
     }
 
@@ -57,7 +58,7 @@ public class ProductController {
     }
 
     @PutMapping(path = "/delete-status/{id}")
-    public void delete_statusProduct(@PathVariable(value = "id") String id, ProductDto dto) {
+    public void delete_statusProduct(@PathVariable(value = "id") String id) {
         service.deleteProduct(id);
     }
 

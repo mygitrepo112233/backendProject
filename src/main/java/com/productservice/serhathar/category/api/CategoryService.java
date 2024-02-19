@@ -9,11 +9,11 @@ public interface CategoryService {
     List<CategoryDto> getAllCategory();
     Category getById(String id);
 
-    void deleteCategory(String id);
+    String deleteCategory(String id);
 
     CategoryDto updateCategory(String id, CategoryDto dto);
 
-    void activateCategory(String id);
+    String activateCategory(String id);
 
     Category getByName(String name);
     List<CategoryDto> findByStatusTrue();

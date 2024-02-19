@@ -9,8 +9,8 @@ public interface ProductService {
     ProductDto createProduct(ProductDto dto);
     List<ProductDto> getAllProducts();
     List<ProductDto> findProductByStatusIsTrue();
-    void deleteProduct(String id);
-    void activateProduct(String id);
+    String deleteProduct(String id);
+    String activateProduct(String id);
     ProductDto updateProduct(String id , ProductDto product);
     List<ProductDto> getProductByCategory(String categoryName);
     Product getProductById(String id);

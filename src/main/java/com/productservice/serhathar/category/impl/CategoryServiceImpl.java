@@ -34,10 +34,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void activateCategory(String id) {
+    public String activateCategory(String id) {
         Category category = repository.getById(id);
         category.setStatus(true);
         updateCategory(id, toDto(category));
+        return "Category successfully activated";
     }
 
     @Override
@@ -80,10 +81,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteCategory(String id) {
+    public String deleteCategory(String id) {
         Category category = repository.getById(id);
         category.setStatus(false);
         updateCategory(id, toDto(category));
+        return "Category successfully deactivated";
     }
 
     public Category toEntity(CategoryDto dto) {
