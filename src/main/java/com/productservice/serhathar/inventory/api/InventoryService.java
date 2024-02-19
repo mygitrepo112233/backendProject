@@ -10,7 +10,6 @@ public interface InventoryService {
     List<InventoryDto> getAllInventories();
     Inventory getById(String id);
     InventoryRepository updateInventory(String id, InventoryDto dto);
-    public void addProductToInventory(String inventoryId, String productId);
+    public int addProductToInventory(String inventoryId, String productId);
     public void removeProductFromInventory(String inventoryId, String productId);
-
 }

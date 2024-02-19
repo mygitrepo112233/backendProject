@@ -68,6 +68,5 @@ public class ProductController {
 
     public List<ProductResponse> toResponse(List<ProductDto> productDtoList) {
         return productDtoList.stream().map(ProductResponse::toResponse).toList();
-
     }
 }

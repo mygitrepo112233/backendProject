@@ -21,16 +21,21 @@ public class InventoryController {
         return ResponseEntity.ok(InventoryResponse.toResponse(inventory));
     }
 
+    @GetMapping(path = "/get-all")
+    public ResponseEntity<List<InventoryResponse>> getInventory(@Valid @RequestBody InventoryRequest request) {
+        List<InventoryResponse> inventoryResponseList = toResponse(service.getAllInventories());
+        return ResponseEntity.ok(inventoryResponseList);
+    }
+
     @PutMapping("/{inventoryId}/products/{productId}/add")
-    public void addProductToInventory(@PathVariable String inventoryId, @PathVariable String productId) {
-        service.addProductToInventory(inventoryId, productId);
+    public int addProductToInventory(@PathVariable String inventoryId, @PathVariable String productId) {
+        return service.addProductToInventory(inventoryId, productId);
     }
 
     @PutMapping("/{inventoryId}/products/{productId}/remove")
     public void removeProductFromInventory(@PathVariable String inventoryId, @PathVariable String productId) {
         service.removeProductFromInventory(inventoryId, productId);
     }
-
     public List<InventoryResponse> toResponse(List<InventoryDto> inventoryDtoList) {
         return inventoryDtoList.stream().map(InventoryResponse::toResponse).toList();
     }
