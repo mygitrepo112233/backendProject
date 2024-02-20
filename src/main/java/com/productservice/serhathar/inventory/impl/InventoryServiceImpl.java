@@ -30,18 +30,6 @@ public class InventoryServiceImpl implements InventoryService {
         return toDto(repository.save(inventory));
     }
 
-    @Override
-    public List<InventoryDto> getAllInventories() {
-
-        return repository.findAll().stream().map(this::toDto).toList();
-    }
-
-    @Override
-    public Inventory getById(String id) {
-
-        return repository.getInventoryById(id);
-    }
-
 
     @Override
     public InventoryRepository updateInventory(String id, InventoryDto dto) {
@@ -78,6 +66,18 @@ public class InventoryServiceImpl implements InventoryService {
         inventory.setName(dto.getName() == null ? inventory.getName() : dto.getName());
         inventory.setName(dto.getName() == null ? inventory.getName() : dto.getName());
         return inventory;
+    }
+
+    @Override
+    public List<InventoryDto> getAllInventories() {
+
+        return repository.findAll().stream().map(this::toDto).toList();
+    }
+
+    @Override
+    public InventoryDto getById(String id) {
+
+        return toDto(repository.getInventoryById(id));
     }
 
     private Inventory toEntity(InventoryDto dto) {

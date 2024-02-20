@@ -27,6 +27,12 @@ public class InventoryController {
         return ResponseEntity.ok(inventoryResponseList);
     }
 
+    @GetMapping(path = "/get/{id}")
+    public ResponseEntity<InventoryResponse> getInventory(@PathVariable @Valid String id) {
+        InventoryDto inventory = service.getById(id);
+        return ResponseEntity.ok(InventoryResponse.toResponse(inventory));
+    }
+
     @PutMapping("/{inventoryId}/products/{productId}/add")
     public int addProductToInventory(@PathVariable String inventoryId, @PathVariable String productId) {
         return service.addProductToInventory(inventoryId, productId);
