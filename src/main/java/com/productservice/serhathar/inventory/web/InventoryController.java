@@ -22,7 +22,7 @@ public class InventoryController {
     }
 
     @GetMapping(path = "/get-all")
-    public ResponseEntity<List<InventoryResponse>> getInventory(@Valid @RequestBody InventoryRequest request) {
+    public ResponseEntity<List<InventoryResponse>> getInventory() {
         List<InventoryResponse> inventoryResponseList = toResponse(service.getAllInventories());
         return ResponseEntity.ok(inventoryResponseList);
     }
